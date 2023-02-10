@@ -1,0 +1,116 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "title": "Для интернета"
+    },
+    {
+      "id": 2,
+      "title": "Для звонков"
+    },
+    {
+      "id": 3,
+      "title": "Для развлечений"
+    },
+    {
+      "id": 4,
+      "title": "Подписки"
+    },
+    {
+      "id": 5,
+      "title": "Прочие"
+    }
+  ],
+  "tarifs": [
+    {
+      "id": 1,
+      "categoryId": 1,
+      "title": "Безлимитный YouTube",
+      "text": "смотри любимое видео без границ",
+      "price": 100,
+      "time": "/ 4 нед.",
+      "img": "https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
+    },
+    {
+      "id": 2,
+      "categoryId": 2,
+      "title": "Пакет TikTok",
+      "text": "50 Гб на TikTok ~ 300 часов просмотров",
+      "price": 60,
+      "time": "/ 4 нед.",
+      "img": "https://free-png.ru/wp-content/uploads/2020/07/Tik-Tok-Logo-1-340x340.png"
+    },
+    {
+      "id": 3,
+      "categoryId": 3,
+      "title": "IVI в тарифе",
+      "text": "более 100 000 фильмов и сериалов",
+      "price": 200,
+      "time": "/ 30 дней",
+      "img": "https://soft-ok.net/uploads/posts/2016-09/1473440477_musicivi-2-4.png"
+    },
+    {
+      "id": 4,
+      "categoryId": 4,
+      "title": "20 Гб интернета",
+      "text": "Закончился интернет? Подключите выгодный..",
+      "price": 240,
+      "time": "/ 4 нед.",
+      "img": "https://media.istockphoto.com/id/1257062654/vector/black-wifi-locked-icon-isolated-on-yellow-background-password-wi-fi-symbol-wireless-network.jpg?s=170667a&w=0&k=20&c=hPJLc0F8LgV0C3dOcc9wdE5dF0ER1ZL1wq9NLaYbwwk="
+    },
+    {
+      "id": 5,
+      "categoryId": 1,
+      "title": "Безлимитный YouTube",
+      "text": "смотри любимое видео без границ",
+      "price": 100,
+      "time": "/ 4 нед.",
+      "img": "https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
+    },
+    {
+      "id": 6,
+      "categoryId": 3,
+      "title": "IVI в тарифе",
+      "text": "более 100 000 фильмов и сериалов",
+      "price": 200,
+      "time": "/ 30 дней",
+      "img": "https://soft-ok.net/uploads/posts/2016-09/1473440477_musicivi-2-4.png"
+    },
+    {
+      "id": 7,
+      "categoryId": 2,
+      "title": "Пакет TikTok",
+      "text": "50 Гб на TikTok ~ 300 часов просмотров",
+      "price": 60,
+      "time": "/ 4 нед.",
+      "img": "https://free-png.ru/wp-content/uploads/2020/07/Tik-Tok-Logo-1-340x340.png"
+    },
+    {
+      "id": 8,
+      "categoryId": 4,
+      "title": "20 Гб интернета",
+      "text": "Закончился интернет? Подключите выгодный..",
+      "price": 240,
+      "time": "/ 4 нед.",
+      "img": "https://media.istockphoto.com/id/1257062654/vector/black-wifi-locked-icon-isolated-on-yellow-background-password-wi-fi-symbol-wireless-network.jpg?s=170667a&w=0&k=20&c=hPJLc0F8LgV0C3dOcc9wdE5dF0ER1ZL1wq9NLaYbwwk="
+    },
+    {
+      "id": 9,
+      "categoryId": 2,
+      "title": "Пакет TikTok",
+      "text": "50 Гб на TikTok ~ 300 часов просмотров",
+      "price": 60,
+      "time": "/ 4 нед.",
+      "img": "https://free-png.ru/wp-content/uploads/2020/07/Tik-Tok-Logo-1-340x340.png"
+    },
+    {
+      "id": 10,
+      "categoryId": 4,
+      "title": "20 Гб интернета",
+      "text": "Закончился интернет? Подключите выгодный..",
+      "price": 240,
+      "time": "/ 4 нед.",
+      "img": "https://media.istockphoto.com/id/1257062654/vector/black-wifi-locked-icon-isolated-on-yellow-background-password-wi-fi-symbol-wireless-network.jpg?s=170667a&w=0&k=20&c=hPJLc0F8LgV0C3dOcc9wdE5dF0ER1ZL1wq9NLaYbwwk="
+    }
+  ]
+}

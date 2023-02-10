@@ -1,0 +1,12 @@
+.filter__box {
+  display: flex;
+  justify-content: center;
+}
+.filter__ul {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 28px;
+
+  width: 646px;
+  list-style: none;
+}

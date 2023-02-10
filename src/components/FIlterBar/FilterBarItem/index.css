@@ -1,0 +1,22 @@
+.li {
+  padding: 10px 20px;
+  
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 144%;
+  color: #909090;
+  background-color: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.li:hover {
+  color: #121212;
+  background: #ffcd00;
+}
+
+.li_active {
+  color: #121212;
+  background: #ffcd00;
+}

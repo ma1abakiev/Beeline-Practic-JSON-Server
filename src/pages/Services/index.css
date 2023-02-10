@@ -1,0 +1,17 @@
+.title {
+  margin-top: 128px;
+  text-align: center;
+  color: #121212;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 132%;
+}
+
+.form__btn-box {
+  position: absolute;
+  top: 700px;
+  left: 1400px;
+}
+.form__btn {
+  text-decoration: none;
+}
