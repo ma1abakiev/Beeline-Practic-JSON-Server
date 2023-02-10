@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { FieldValues, UseFormRegister } from 'react-hook-form'
 // export function getChildren(id: number): Promise<Incident[]> {
 //   return axios.get(`/incident/child/${id}`).then(res => res.data)
 // }
@@ -20,13 +21,13 @@ export interface CardListTypes {
 
 export function getFilterTitles() {
   return axios
-    .get<any | FilterTypes[]>('http://localhost:3000/categories')
+    .get<FilterTypes[]>('http://localhost:3000/categories')
     .then((res) => res.data)
 }
 
 export function getCardList() {
   return axios
-    .get<any | CardListTypes>('http://localhost:3000/tarifs')
+    .get<CardListTypes[]>('http://localhost:3000/tarifs')
     .then((res) => res.data)
 }
 

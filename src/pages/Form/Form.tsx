@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import {
@@ -11,37 +11,24 @@ import {
 import './index.css'
 
 const Form = () => {
-  const [card, setCard] = useState<CardListTypes>({
-    id: 0,
-    categoryId: 1,
-    title: '',
-    text: '',
-    price: 0,
-    time: '',
-    img: '',
-  })
   const [filterBarTitles, setFilterBarTitles] = useState<FilterTypes[]>([])
   const navigate = useNavigate()
-  const { register, handleSubmit } = useForm()
-
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<CardListTypes>({
+    mode: 'onBlur',
+  })
   useEffect(() => {
     getFilterTitles().then((data) => setFilterBarTitles(data))
   }, [])
-
-  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    if (
-      card.title !== '' &&
-      card.text !== '' &&
-      card.img !== '' &&
-      card.time !== '' &&
-      card.price !== 0
-    ) {
-      await postCard(card)
-      navigate('/services')
-    }
+  const onSubmit = async (data: CardListTypes) => {
+    data.categoryId = Number(data.categoryId)
+    data.price = Number(data.price)
+    await postCard(data)
+    navigate('/services')
   }
-
   return (
     <>
       <div className="form__btn-back">
@@ -50,17 +37,19 @@ const Form = () => {
         </Link>
       </div>
 
-      <form onSubmit={(e) => submitHandler(e)} className="form">
+      <form
+        action="http://localhost:3000/tarifs"
+        onSubmit={handleSubmit(onSubmit)}
+        className="form"
+      >
         <div className="container">
           <div className="form__content">
             <span>Введите категорию</span>
             <select
-              value={card.categoryId}
-              onChange={(e) =>
-                setCard({ ...card, categoryId: Number(e.target.value) })
-              }
               className="form__select"
-              name="categoryId"
+              {...register('categoryId', {
+                required: 'Обязательно для заполнения',
+              })}
             >
               {filterBarTitles.map((title, index) => {
                 return (
@@ -73,72 +62,80 @@ const Form = () => {
             <span>Введите заголовок</span>
 
             <input
-              required
-              placeholder="Title"
-              name={'title'}
-              onChange={(e) => setCard({ ...card, title: e.target.value })}
-              value={card.title}
-              type="text"
+              {...register('title', {
+                required: 'Поле обязательно к заполнению',
+                min: 1,
+              })}
               className="form__input"
             />
+            <div className='form__error-box'>
+              {errors?.title && (
+                <p className="form__error">
+                  {(errors?.title?.message as ReactNode) || 'Ошибка'}
+                </p>
+              )}
+            </div>
             <span>Введите текст</span>
-
             <input
-              required
-              placeholder="Text"
-              name="text"
-              onChange={(e) => setCard({ ...card, text: e.target.value })}
-              value={card.text}
-              type="text"
+              {...register('text', {
+                required: 'Поле обязательно к заполнению',
+                min: 1,
+              })}
               className="form__input"
             />
+            <div className='form__error-box'>
+              {errors?.text && (
+                <p className="form__error">
+                  {(errors?.text?.message as ReactNode) || 'Ошибка'}
+                </p>
+              )}
+            </div>
             <span>Введите цену</span>
-
             <input
-              required
-              placeholder="Price"
-              name="price"
-              type="number"
-              onChange={(e) =>
-                setCard({ ...card, price: Number(e.target.value) })
-              }
-              value={card.price}
+              {...register('price', {
+                required: 'Поле обязательно к заполнению',
+              })}
               className="form__input"
+              type={'number'}
             />
+            <div className='form__error-box'>
+              {errors?.price && (
+                <p className="form__error">
+                  {(errors?.price?.message as ReactNode) || 'Ошибка'}
+                </p>
+              )}
+            </div>
             <span>Введите период времени</span>
             <input
-              required
-              placeholder="time"
-              name="time"
-              onChange={(e) => setCard({ ...card, time: e.target.value })}
-              value={card.time}
-              type="text"
+              {...register('time', {
+                required: 'Поле обязательно к заполнению',
+                min: 1,
+              })}
               className="form__input"
             />
+            <div className='form__error-box'>
+              {errors?.time && (
+                <p className="form__error">
+                  {(errors?.time?.message as ReactNode) || 'Ошибка'}
+                </p>
+              )}
+            </div>
             <span>Введите URL картинки</span>
             <input
-              required
-              placeholder="Img URL"
-              name="img"
-              onChange={(e) => setCard({ ...card, img: e.target.value })}
-              value={card.img}
-              type="text"
+              {...register('img', {
+                required: 'Поле обязательно к заполнению',
+                min: 1,
+              })}
               className="form__input"
             />
-            <button
-              className={
-                card.title == '' ||
-                card.text == '' ||
-                card.img == '' ||
-                card.time == '' ||
-                card.price == 0
-                  ? 'form__btn form__btn_disabled'
-                  : 'form__btn'
-              }
-              type="submit"
-            >
-              Создать
-            </button>
+            <div className='form__error-box'>
+              {errors?.img && (
+                <p className="form__error">
+                  {(errors?.img?.message as ReactNode) || 'Ошибка'}
+                </p>
+              )}
+            </div>
+            <input className={'form__btn'} type="submit"></input>
           </div>
         </div>
       </form>
