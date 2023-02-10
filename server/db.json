@@ -111,6 +111,15 @@
       "price": 240,
       "time": "/ 4 нед.",
       "img": "https://media.istockphoto.com/id/1257062654/vector/black-wifi-locked-icon-isolated-on-yellow-background-password-wi-fi-symbol-wireless-network.jpg?s=170667a&w=0&k=20&c=hPJLc0F8LgV0C3dOcc9wdE5dF0ER1ZL1wq9NLaYbwwk="
+    },
+    {
+      "categoryId": 1,
+      "title": "аывфаы",
+      "text": "афыва",
+      "price": 41234,
+      "time": "/ 4 недели",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMHuw4VUMfe73E_1acQWVlrToHrAGN3SjWHA&usqp=CAU",
+      "id": 11
     }
   ]
 }

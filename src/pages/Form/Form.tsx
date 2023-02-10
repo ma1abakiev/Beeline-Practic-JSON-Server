@@ -10,12 +10,11 @@ import {
 import './index.css'
 
 interface FormProps {
-  activeTab: number,
+  activeTab: number
   setActiveTab: React.Dispatch<React.SetStateAction<number>>
 }
 
-
-const Form = ({activeTab, setActiveTab} : FormProps) => {
+const Form = ({ activeTab, setActiveTab }: FormProps) => {
   const [filterBarTitles, setFilterBarTitles] = useState<FilterTypes[]>([])
   const navigate = useNavigate()
   const {
@@ -60,10 +59,10 @@ const Form = ({activeTab, setActiveTab} : FormProps) => {
                 required: 'Обязательно для заполнения',
               })}
             >
-              {filterBarTitles.map((title, index) => {
+              {filterBarTitles.map((item) => {
                 return (
-                  <option key={title.id} value={index + 1}>
-                    {title.title}
+                  <option key={item.id} value={item.id}>
+                    {item.title}
                   </option>
                 )
               })}
@@ -105,7 +104,7 @@ const Form = ({activeTab, setActiveTab} : FormProps) => {
                 required: 'Поле обязательно к заполнению',
               })}
               className="form__input"
-              type={'number'}
+              type="number"
             />
             <div className="form__error-box">
               {errors?.price && (
