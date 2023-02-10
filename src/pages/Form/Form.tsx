@@ -7,27 +7,37 @@ import {
   getFilterTitles,
   postCard,
 } from '../../store/store'
-
 import './index.css'
 
-const Form = () => {
+interface FormProps {
+  activeTab: number,
+  setActiveTab: React.Dispatch<React.SetStateAction<number>>
+}
+
+
+const Form = ({activeTab, setActiveTab} : FormProps) => {
   const [filterBarTitles, setFilterBarTitles] = useState<FilterTypes[]>([])
   const navigate = useNavigate()
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm<CardListTypes>({
     mode: 'onBlur',
   })
+
   useEffect(() => {
     getFilterTitles().then((data) => setFilterBarTitles(data))
   }, [])
+
   const onSubmit = async (data: CardListTypes) => {
     data.categoryId = Number(data.categoryId)
     data.price = Number(data.price)
     await postCard(data)
+    setActiveTab(data.categoryId)
     navigate('/services')
+    reset()
   }
   return (
     <>
@@ -36,7 +46,6 @@ const Form = () => {
           Back
         </Link>
       </div>
-
       <form
         action="http://localhost:3000/tarifs"
         onSubmit={handleSubmit(onSubmit)}
@@ -68,7 +77,7 @@ const Form = () => {
               })}
               className="form__input"
             />
-            <div className='form__error-box'>
+            <div className="form__error-box">
               {errors?.title && (
                 <p className="form__error">
                   {(errors?.title?.message as ReactNode) || 'Ошибка'}
@@ -83,7 +92,7 @@ const Form = () => {
               })}
               className="form__input"
             />
-            <div className='form__error-box'>
+            <div className="form__error-box">
               {errors?.text && (
                 <p className="form__error">
                   {(errors?.text?.message as ReactNode) || 'Ошибка'}
@@ -98,7 +107,7 @@ const Form = () => {
               className="form__input"
               type={'number'}
             />
-            <div className='form__error-box'>
+            <div className="form__error-box">
               {errors?.price && (
                 <p className="form__error">
                   {(errors?.price?.message as ReactNode) || 'Ошибка'}
@@ -113,7 +122,7 @@ const Form = () => {
               })}
               className="form__input"
             />
-            <div className='form__error-box'>
+            <div className="form__error-box">
               {errors?.time && (
                 <p className="form__error">
                   {(errors?.time?.message as ReactNode) || 'Ошибка'}
@@ -128,7 +137,7 @@ const Form = () => {
               })}
               className="form__input"
             />
-            <div className='form__error-box'>
+            <div className="form__error-box">
               {errors?.img && (
                 <p className="form__error">
                   {(errors?.img?.message as ReactNode) || 'Ошибка'}

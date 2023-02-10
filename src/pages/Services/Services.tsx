@@ -11,13 +11,12 @@ import CardList from '../../components/CardList/CardList'
 import { Link } from 'react-router-dom'
 
 interface ServicesProps {
-  cardList: CardListTypes[]
-  filterBarTitles: FilterTypes[]
+  activeTab: number,
+  setActiveTab: React.Dispatch<React.SetStateAction<number>>
 }
 
-const Services = () => {
+const Services = ({activeTab, setActiveTab} : ServicesProps) => {
   const [cardListShowed, setCardListShowed] = useState<CardListTypes[]>([])
-  const [activeTab, setActiveTab] = useState(2)
   const [cardList, setCardList] = useState<CardListTypes[]>([])
   const [filterBarTitles, setFilterBarTitles] = useState<FilterTypes[]>([])
 
