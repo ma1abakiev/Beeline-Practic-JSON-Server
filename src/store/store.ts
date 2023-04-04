@@ -1,8 +1,4 @@
 import axios from 'axios'
-import { FieldValues, UseFormRegister } from 'react-hook-form'
-// export function getChildren(id: number): Promise<Incident[]> {
-//   return axios.get(`/incident/child/${id}`).then(res => res.data)
-// }
 
 export interface FilterTypes {
   id: number
